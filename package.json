@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build.gh-page": "ng build --output-path=docs --base-href=https://vinagreti.github.io/mbqt-f1/",
+    "build.gh-page": "ng build --output-path=docs --base-href=https://vinagreti.github.io/mbqt-f1/ && npm run copy-index-to-404",
+    "copy-index-to-404": "cp \"./docs/index.html\" \"./docs/404.html\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
