@@ -59,7 +59,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngFor=\"let year of years\">\r\n    <app-season [year]=\"year\"></app-season>\r\n</div>"
+module.exports = "<div *ngFor=\"let year of years\">\r\n    <app-season [year]=\"year\" (click)=\"showYearDetails(year)\" class=\"click\"></app-season>\r\n</div>"
 
 /***/ }),
 
@@ -89,6 +89,9 @@ var SeasonsComponent = /** @class */ (function () {
         this.years = Array.from({ length: 11 }, function (v, k) { return k + 2005; });
     }
     SeasonsComponent.prototype.ngOnInit = function () {
+    };
+    SeasonsComponent.prototype.showYearDetails = function (year) {
+        console.log('showYearDetails(year)', year);
     };
     SeasonsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -169,7 +172,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n  {{year}} -\n\n  <span *ngIf=\"season else loadingTemplate\">\n    <span *ngIf=\"season.MRData else problemsLoadingTemplate\">\n      <span *ngIf=\"champion\">\n        {{ champion.givenName }}\n        {{ champion.familyName }}\n      </span>\n      <small *ngIf=\"manufaturer\">({{ manufaturer?.name }})</small>\n    </span>\n  </span>\n\n</h3>\n\n\n\n<ng-template #loadingTemplate>\n  Loading...\n</ng-template>\n\n<ng-template #problemsLoadingTemplate>\n  Problems loading data. Please try again later.\n</ng-template>"
+module.exports = "<span>\n  {{year}} -\n\n  <span *ngIf=\"season else loadingTemplate\">\n    <span *ngIf=\"season.MRData else problemsLoadingTemplate\">\n      <span *ngIf=\"champion\">\n        {{ champion.givenName }}\n        {{ champion.familyName }}\n      </span>\n      <small *ngIf=\"manufaturer\">({{ manufaturer?.name }})</small>\n    </span>\n  </span>\n</span>\n\n<ng-template #loadingTemplate>\n  Loading...\n</ng-template>\n\n<ng-template #problemsLoadingTemplate>\n  Problems loading data. Please try again later.\n</ng-template>\n"
 
 /***/ }),
 

@@ -14,4 +14,8 @@ export class SeasonsComponent implements OnInit {
   ngOnInit() {
   }
 
+  showYearDetails(year) {
+    console.log('showYearDetails(year)', year);
+  }
+
 }

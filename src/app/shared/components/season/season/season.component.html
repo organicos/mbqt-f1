@@ -1,4 +1,4 @@
-<h3>
+<span>
   {{year}} -
 
   <span *ngIf="season else loadingTemplate">
@@ -10,10 +10,7 @@
       <small *ngIf="manufaturer">({{ manufaturer?.name }})</small>
     </span>
   </span>
-
-</h3>
-
-
+</span>
 
 <ng-template #loadingTemplate>
   Loading...
