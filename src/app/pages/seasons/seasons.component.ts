@@ -9,6 +9,8 @@ export class SeasonsComponent implements OnInit {
 
   years = Array.from({ length: 11 }, (v, k) => k + 2005);
 
+  showRaces: {[key: number]: boolean} = [];
+
   constructor() { }
 
   ngOnInit() {

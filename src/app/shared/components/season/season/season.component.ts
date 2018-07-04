@@ -19,10 +19,10 @@ export class SeasonComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
-    this.loadSeasons();
+    this.loadSeason();
   }
 
-  private loadSeasons() {
+  private loadSeason() {
     this.ergast.season(this.year)
     .toPromise()
     .then(season => {

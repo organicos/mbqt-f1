@@ -1,3 +1,6 @@
-<div *ngFor="let year of years">
-    <app-season [year]="year" (click)="showYearDetails(year)" class="click"></app-season>
+<div *ngFor="let year of years, let i = index;">
+    <app-season [year]="year" (click)="showRaces[i] = !showRaces[i]" class="click"></app-season>
+    <ng-container *ngIf="showRaces[i]">
+        <app-season-races [year]="year"></app-season-races>
+    </ng-container>
 </div>

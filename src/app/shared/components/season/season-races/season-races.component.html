@@ -1,0 +1,15 @@
+<span>
+  <span *ngIf="races else loadingTemplate">
+    <span *ngIf="races.MRData else problemsLoadingTemplate">
+      {{ races.MRData.total }}
+    </span>
+  </span>
+</span>
+  
+<ng-template #loadingTemplate>
+  Loading...
+</ng-template>
+
+<ng-template #problemsLoadingTemplate>
+  Problems loading data. Please try again later.
+</ng-template>
