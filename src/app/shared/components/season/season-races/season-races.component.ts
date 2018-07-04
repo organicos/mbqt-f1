@@ -22,7 +22,6 @@ export class SeasonRacesComponent implements AfterViewInit {
 
   private loadSeasons() {
     this.ergast.races(this.year)
-    .toPromise()
     .then(races => {
       this.races = races;
     });

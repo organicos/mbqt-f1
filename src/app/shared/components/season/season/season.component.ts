@@ -23,8 +23,7 @@ export class SeasonComponent implements AfterViewInit {
   }
 
   private loadSeason() {
-    this.ergast.season(this.year)
-    .toPromise()
+    this.ergast.seasonChampion(this.year)
     .then(season => {
       this.season = season;
       this.extractChampion();
