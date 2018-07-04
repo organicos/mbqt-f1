@@ -15,6 +15,23 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/*": [
+          "src/app/*"
+      ],
+      "@env/*": [
+          "src/environments/*"
+      ],
+      "@services/*": [
+          "src/app/shared/services/*"
+      ],
+      "@components/*": [
+          "src/app/shared/components/*"
+      ],
+      "@directives/*": [
+          "src/app/shared/directives/*"
+      ]
+    }
   }
 }

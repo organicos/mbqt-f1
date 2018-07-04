@@ -59,7 +59,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<h1>Mbqt F1</h1>\r\n\r\n<a routerLink=\"seasons\">Seasons</a>"
 
 /***/ }),
 

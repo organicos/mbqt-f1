@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
-const SEASONS_ENDPOINT = 'http://ergast.com/api/f1/seasons';
-
-const SEASON_ENDPOINT = 'http://ergast.com/api/f1';
-
-const SEASON_REVIEW_ENDPOINT = 'http://en.wikipedia.org/wiki/1950_Formula_One_season';
-
-const GRAN_PRIX_REVIEW_ENDPOINT = 'http://en.wikipedia.org/wiki/1950_British_Grand_Prix';
-
-const years = Array.from({ length: 11 }, (v, k) => k + 2005);
+const CHAMPION_BY_YEAR_API = 'http://ergast.com/api/f1/${year}/last/driverStandings/1.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErgastService {
 
-  constructor() {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   season(year) {
 
-    const endpoint = `SEASON_ENDPOINT/${year}`;
+    const endpoint = CHAMPION_BY_YEAR_API.replace('${year}', year);
+
+    return this.http.get(endpoint)
+    .pipe(
+      catchError(err => {
+        console.log('->>>>> ErgastService Error:: Need to handle error in calls', err);
+        return throwError('->>>>> ErgastService Error:: Need to handle error in calls');
+      })
+    );
 
   }
 

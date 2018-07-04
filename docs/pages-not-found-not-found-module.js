@@ -59,7 +59,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  not-found works!\n</p>\n"
+module.exports = "<p>\r\n  not-found works!\r\n</p>\r\n"
 
 /***/ }),
 

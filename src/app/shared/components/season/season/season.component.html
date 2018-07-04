@@ -1,0 +1,23 @@
+<h1>{{year}} {{ circuit?.circuitName }}</h1>
+
+<div *ngIf="season else loadingTemplate">
+
+  <div *ngIf="season.MRData else problemsLoadingTemplate">
+
+    <p>
+      <strong>Champion:</strong>
+      {{ champion.givenName }}
+      {{ champion.familyName }}
+    </p>
+    
+  </div>
+
+</div>
+
+<ng-template #loadingTemplate>
+  Loading...
+</ng-template>
+
+<ng-template #problemsLoadingTemplate>
+  Problems loading data. Please try again later.
+</ng-template>
