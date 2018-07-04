@@ -9,7 +9,7 @@ import { ErgastService } from '@services/ergast/ergast.service';
 export class SeasonComponent implements AfterViewInit {
 
   champion;
-  circuit;
+  manufaturer;
   season;
 
   @Input() year;
@@ -28,7 +28,7 @@ export class SeasonComponent implements AfterViewInit {
     .then(season => {
       this.season = season;
       this.extractChampion();
-      this.extractCircuit();
+      this.extractConstructor();
     });
   }
 
@@ -40,9 +40,9 @@ export class SeasonComponent implements AfterViewInit {
     }
   }
 
-  private extractCircuit() {
+  private extractConstructor() {
     try {
-      this.circuit = this.season.MRData.RaceTable.Races[0].Circuit;
+      this.manufaturer = this.season.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Constructors[0];
     } catch (error) {
       return undefined;
     }

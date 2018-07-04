@@ -4,7 +4,7 @@ import { SeasonComponent } from './season.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [SeasonComponent],
   exports: [SeasonComponent]

@@ -1,18 +1,19 @@
-<h1>{{year}} {{ circuit?.circuitName }}</h1>
+<h3>
+  {{year}} -
 
-<div *ngIf="season else loadingTemplate">
+  <span *ngIf="season else loadingTemplate">
+    <span *ngIf="season.MRData else problemsLoadingTemplate">
+      <span *ngIf="champion">
+        {{ champion.givenName }}
+        {{ champion.familyName }}
+      </span>
+      <small *ngIf="manufaturer">({{ manufaturer?.name }})</small>
+    </span>
+  </span>
 
-  <div *ngIf="season.MRData else problemsLoadingTemplate">
+</h3>
 
-    <p>
-      <strong>Champion:</strong>
-      {{ champion.givenName }}
-      {{ champion.familyName }}
-    </p>
-    
-  </div>
 
-</div>
 
 <ng-template #loadingTemplate>
   Loading...

@@ -86,7 +86,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var SeasonsComponent = /** @class */ (function () {
     function SeasonsComponent() {
-        this.years = Array.from({ length: 11 }, function (v, k) { return k + 2007; });
+        this.years = Array.from({ length: 11 }, function (v, k) { return k + 2005; });
     }
     SeasonsComponent.prototype.ngOnInit = function () {
     };
@@ -169,7 +169,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>{{year}} {{ circuit?.circuitName }}</h1>\n\n<div *ngIf=\"season else loadingTemplate\">\n\n  <div *ngIf=\"season.MRData else problemsLoadingTemplate\">\n\n    <p>\n      <strong>Champion:</strong>\n      {{ champion.givenName }}\n      {{ champion.familyName }}\n    </p>\n    \n  </div>\n\n</div>\n\n<ng-template #loadingTemplate>\n  Loading...\n</ng-template>\n\n<ng-template #problemsLoadingTemplate>\n  Problems loading data. Please try again later.\n</ng-template>"
+module.exports = "<h3>\n  {{year}} -\n\n  <span *ngIf=\"season else loadingTemplate\">\n    <span *ngIf=\"season.MRData else problemsLoadingTemplate\">\n      <span *ngIf=\"champion\">\n        {{ champion.givenName }}\n        {{ champion.familyName }}\n      </span>\n      <small *ngIf=\"manufaturer\">({{ manufaturer?.name }})</small>\n    </span>\n  </span>\n\n</h3>\n\n\n\n<ng-template #loadingTemplate>\n  Loading...\n</ng-template>\n\n<ng-template #problemsLoadingTemplate>\n  Problems loading data. Please try again later.\n</ng-template>"
 
 /***/ }),
 
@@ -210,7 +210,7 @@ var SeasonComponent = /** @class */ (function () {
             .then(function (season) {
             _this.season = season;
             _this.extractChampion();
-            _this.extractCircuit();
+            _this.extractConstructor();
         });
     };
     SeasonComponent.prototype.extractChampion = function () {
@@ -221,9 +221,9 @@ var SeasonComponent = /** @class */ (function () {
             return undefined;
         }
     };
-    SeasonComponent.prototype.extractCircuit = function () {
+    SeasonComponent.prototype.extractConstructor = function () {
         try {
-            this.circuit = this.season.MRData.RaceTable.Races[0].Circuit;
+            this.manufaturer = this.season.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Constructors[0];
         }
         catch (error) {
             return undefined;
@@ -276,7 +276,7 @@ var SeasonModule = /** @class */ (function () {
     SeasonModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
             ],
             declarations: [_season_component__WEBPACK_IMPORTED_MODULE_2__["SeasonComponent"]],
             exports: [_season_component__WEBPACK_IMPORTED_MODULE_2__["SeasonComponent"]]
