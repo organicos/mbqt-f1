@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
-const CHAMPION_BY_YEAR_API = 'http://ergast.com/api/f1/${year}/last/driverStandings/1.json';
+const CHAMPION_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/last/driverStandings/1.json';
 
 @Injectable({
   providedIn: 'root'

@@ -306,7 +306,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var CHAMPION_BY_YEAR_API = 'http://ergast.com/api/f1/${year}/last/driverStandings/1.json';
+var CHAMPION_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/last/driverStandings/1.json';
 var ErgastService = /** @class */ (function () {
     function ErgastService(http) {
         this.http = http;
