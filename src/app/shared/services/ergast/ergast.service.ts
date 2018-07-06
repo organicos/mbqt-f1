@@ -7,7 +7,7 @@ const CHAMPION_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/last/driverStand
 
 const RACES_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/races.json';
 
-const WINS_BY_YEAR_AND_DRIVER_API = 'http://ergast.com/api/f1/${year}/drivers/${driver}/results/1.json';
+const WINS_BY_YEAR_AND_DRIVER_API = 'https://ergast.com/api/f1/${year}/drivers/${driver}/results/1.json';
 
 export interface LocalCache {
   [key: string]: any;
