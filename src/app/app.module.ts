@@ -15,7 +15,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserModule,
     CoreModule,
-    ServiceWorkerModule.register('/mbqt-f1/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register(environment.swFile, { enabled: environment.production }),
   ],
   bootstrap: [AppComponent]
 })

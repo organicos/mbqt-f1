@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  swFile: '/ngsw-worker.js'
+  swFile: '/mbqt-f1/ngsw-worker.js'
 };
