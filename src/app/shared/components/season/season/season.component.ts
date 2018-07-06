@@ -1,10 +1,10 @@
-import { Component, AfterViewInit, Input } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { ErgastService } from '@services/ergast/ergast.service';
 
 @Component({
   selector: 'app-season',
   templateUrl: './season.component.html',
-  styleUrls: ['./season.component.css']
+  styleUrls: ['./season.component.scss']
 })
 export class SeasonComponent implements AfterViewInit {
 
@@ -13,6 +13,10 @@ export class SeasonComponent implements AfterViewInit {
   season;
 
   @Input() year;
+
+  @Input() highlight;
+
+  @Output() championReceived = new EventEmitter<any>();
 
   constructor(
     private ergast: ErgastService
@@ -34,6 +38,7 @@ export class SeasonComponent implements AfterViewInit {
   private extractChampion() {
     try {
       this.champion = this.season.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Driver;
+      this.championReceived.emit(this.champion);
     } catch (error) {
       return undefined;
     }

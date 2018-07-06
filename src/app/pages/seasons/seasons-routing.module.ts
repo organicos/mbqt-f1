@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SeasonsComponent } from './seasons.component';
 
 const routes: Routes = [
-  { path: '', component: SeasonsComponent }
+  { path: '', component: SeasonsComponent },
+  { path: ':year', component: SeasonsComponent },
 ];
 
 @NgModule({

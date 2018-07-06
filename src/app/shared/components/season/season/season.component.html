@@ -1,4 +1,4 @@
-<span>
+<div [ngClass]="{highlight: highlight}">
   {{year}} -
 
   <span *ngIf="season else loadingTemplate">
@@ -10,7 +10,7 @@
       <small *ngIf="manufaturer">({{ manufaturer?.name }})</small>
     </span>
   </span>
-</span>
+</div>
 
 <ng-template #loadingTemplate>
   Loading...

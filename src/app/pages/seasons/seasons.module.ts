@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SeasonsRoutingModule } from './seasons-routing.module';
 import { SeasonsComponent } from './seasons.component';
@@ -12,6 +13,7 @@ import { SeasonRacesModule } from '@app/shared/components/season/season-races/se
     SeasonsRoutingModule,
     SeasonModule,
     SeasonRacesModule,
+    FlexLayoutModule,
   ],
   declarations: [SeasonsComponent]
 })

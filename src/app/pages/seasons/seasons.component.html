@@ -1,9 +1,14 @@
+<h1 routerLink="/" class="click">F1</h1>
+
 <h1>Champions by season</h1>
 
-<div *ngFor="let year of years, let i = index;">
-    <app-season [year]="year" (click)="showRaces[i] = !showRaces[i]" class="click" #season></app-season>
-
-    <div [hidden]="!showRaces[i]">
-        <app-season-races [year]="year" [driver]="season?.champion?.driverId"></app-season-races>
+<div fxLayout="row">
+  <div fxFlex>
+    <div *ngFor="let year of years">
+      <app-season [year]="year" (click)="setOpenYear(year)" [highlight]="yearOpen == year" class="click" (championReceived)="champions[year] = $event;"></app-season>
     </div>
+  </div>
+  <div fxFlex>
+    <app-season-races *ngIf="yearOpen" [year]="yearOpen" [driver]="champions[yearOpen]?.driverId"></app-season-races>
+  </div>
 </div>

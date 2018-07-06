@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-season-race',
   templateUrl: './season-race.component.html',
-  styleUrls: ['./season-race.component.css']
+  styleUrls: ['./season-race.component.scss']
 })
 export class SeasonRaceComponent implements OnInit {
 
