@@ -2,7 +2,8 @@
 
 <div *ngFor="let year of years, let i = index;">
     <app-season [year]="year" (click)="showRaces[i] = !showRaces[i]" class="click" #season></app-season>
-    <ng-container *ngIf="showRaces[i]">
-        <app-season-races [year]="year" [driver]="season.champion.driverId"></app-season-races>
-    </ng-container>
+
+    <div [hidden]="!showRaces[i]">
+        <app-season-races [year]="year" [driver]="season?.champion?.driverId"></app-season-races>
+    </div>
 </div>

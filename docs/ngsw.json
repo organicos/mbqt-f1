@@ -1,0 +1,79 @@
+{
+  "configVersion": 1,
+  "index": "https://vinagreti.github.io/mbqt-f1/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://vinagreti.github.io/mbqt-f1/0.2e20d85fbe891494ac98.js",
+        "https://vinagreti.github.io/mbqt-f1/1.52f888b3c584ea70e601.js",
+        "https://vinagreti.github.io/mbqt-f1/2.9ef5da33da27e6f6618f.js",
+        "https://vinagreti.github.io/mbqt-f1/favicon.ico",
+        "https://vinagreti.github.io/mbqt-f1/index.html",
+        "https://vinagreti.github.io/mbqt-f1/main.b44e5377020308a92d5f.js",
+        "https://vinagreti.github.io/mbqt-f1/polyfills.1f682948bdc523f3cb0b.js",
+        "https://vinagreti.github.io/mbqt-f1/runtime.a83b9a1c2d5c5a71edae.js",
+        "https://vinagreti.github.io/mbqt-f1/styles.d0b6f12f834b64a3ae79.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-128x128.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-144x144.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-152x152.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-192x192.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-384x384.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-512x512.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-72x72.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-96x96.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/styles/appearance.scss"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://vinagreti.github.io/mbqt-f1/0.2e20d85fbe891494ac98.js": "d862cdd7e2c21ec6fd055f5b4ad34fd15adee978",
+    "https://vinagreti.github.io/mbqt-f1/1.52f888b3c584ea70e601.js": "5d8707058284ed06c9923ca634acb81b257df082",
+    "https://vinagreti.github.io/mbqt-f1/2.9ef5da33da27e6f6618f.js": "80622b293b921ab91b30f6fe7fcd2697b7976808",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-128x128.png": "a8352fc21c04ed47e3e16f972f1a694907951ac7",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-144x144.png": "c2a56118449ac3fdfb5c9bd8277d71b3132f22a2",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-152x152.png": "0f4a8255c8bff70fbb2dbb2bdc127b6e266661ac",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-192x192.png": "9233a33e5ef7c01a7836ed86a352f9a95cf8f861",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-384x384.png": "868654b23e6f4c057a9d671d5ff7b4cb6a4bd5e0",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-512x512.png": "868654b23e6f4c057a9d671d5ff7b4cb6a4bd5e0",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-72x72.png": "708e785d9f7f279166515fdbd13c588526c04fb2",
+    "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-96x96.png": "b887aabec85a768c0ab9a7f07eed0373586eab33",
+    "https://vinagreti.github.io/mbqt-f1/assets/styles/appearance.scss": "362205be2225af2ff1bfe25cdf1286c5126d651f",
+    "https://vinagreti.github.io/mbqt-f1/favicon.ico": "4c4dbff2d9dfe8030d2aaa193de29a178ceae9ae",
+    "https://vinagreti.github.io/mbqt-f1/index.html": "624c3c2ffda6b4b84f80e3183c3e1c3d79468b26",
+    "https://vinagreti.github.io/mbqt-f1/main.b44e5377020308a92d5f.js": "d3363d5ca40ded7991e1a2dddc65bc6e99b08126",
+    "https://vinagreti.github.io/mbqt-f1/polyfills.1f682948bdc523f3cb0b.js": "22f5c7d2a7ba8b39450284707ae4811616cdd3ad",
+    "https://vinagreti.github.io/mbqt-f1/runtime.a83b9a1c2d5c5a71edae.js": "843a14d5c779d09b277fbac7e7d818e1a5eca3a5",
+    "https://vinagreti.github.io/mbqt-f1/styles.d0b6f12f834b64a3ae79.css": "c27cd8ca0570d30a31cb918b4ef8f2c8aa32fe94"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
+}

@@ -10,11 +10,23 @@ export class SeasonRacesComponent implements AfterViewInit {
 
   races;
 
+  driverWon: any = {};
+
   @Input() year;
 
-  @Input() driver;
+  @Input()
+  set driver(v: string) {
+    this._driver = v;
+    if (v) {
+      this.loadDriverWins();
+    }
+  }
 
-  private driverWins;
+  get driver() {
+    return this._driver;
+  }
+
+  private _driver;
 
   constructor(
     private ergast: ErgastService
@@ -22,10 +34,7 @@ export class SeasonRacesComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.loadSeasons();
-    this.loadDriverWins();
   }
-
-  driverWon: any = {};
 
   private loadSeasons() {
     this.ergast.racesByYear(this.year)
