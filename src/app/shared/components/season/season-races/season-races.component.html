@@ -1,9 +1,19 @@
 <span>
+
   <span *ngIf="races else loadingTemplate">
+
     <span *ngIf="races.MRData else problemsLoadingTemplate">
-      {{ races.MRData.total }}
+
+      <div *ngFor="let race of races.MRData.RaceTable.Races">
+
+        <app-season-race [race]="race" [highlight]="driverWon[race.round]"></app-season-race>
+
+      </div>
+
     </span>
+
   </span>
+
 </span>
   
 <ng-template #loadingTemplate>
@@ -11,5 +21,5 @@
 </ng-template>
 
 <ng-template #problemsLoadingTemplate>
-  Problems loading data. Please try again later.
+  Problems loading data. Please try again later. If the problem persists, contact the support.
 </ng-template>

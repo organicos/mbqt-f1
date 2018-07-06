@@ -12,20 +12,38 @@ export class SeasonRacesComponent implements AfterViewInit {
 
   @Input() year;
 
+  @Input() driver;
+
+  private driverWins;
+
   constructor(
     private ergast: ErgastService
   ) { }
 
   ngAfterViewInit() {
     this.loadSeasons();
+    this.loadDriverWins();
   }
 
+  driverWon: any = {};
+
   private loadSeasons() {
-    this.ergast.races(this.year)
+    this.ergast.racesByYear(this.year)
     .then(races => {
       this.races = races;
     });
   }
 
+  private loadDriverWins() {
+    this.ergast.winsByYear(this.year, this.driver)
+    .then((driverWins: any) => {
 
+      const races = driverWins.MRData.RaceTable.Races;
+
+      races.forEach(race => {
+        this.driverWon[race.round] = true;
+      });
+
+    });
+  }
 }

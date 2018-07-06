@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-season-race',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./season-race.component.css']
 })
 export class SeasonRaceComponent implements OnInit {
+
+  @Input() race;
+
+  @Input() highlight;
 
   constructor() { }
 

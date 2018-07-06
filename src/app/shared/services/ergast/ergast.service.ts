@@ -7,6 +7,8 @@ const CHAMPION_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/last/driverStand
 
 const RACES_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/races.json';
 
+const WINS_BY_YEAR_AND_DRIVER_API = 'http://ergast.com/api/f1/${year}/drivers/${driver}/results/1.json';
+
 export interface LocalCache {
   [key: string]: any;
 }
@@ -19,43 +21,39 @@ export class ErgastService {
   private localCache: LocalCache = {
     seasonChampion: {},
     races: {},
+    wins: {},
   };
 
   constructor(
     private http: HttpClient
   ) {}
 
-  seasonChampion(year) {
-    return new Promise((resolve, reject) => {
-      if (this.localCache.seasonChampion[year]) {
-        resolve(this.localCache.seasonChampion[year]);
-      } else {
-        const endpoint = CHAMPION_BY_YEAR_API.replace('${year}', year);
-        this.http.get(endpoint)
-        .pipe(this.handleError())
-        .toPromise()
-        .then(res => {
-          this.localCache.seasonChampion[year] = res;
-          resolve(this.localCache.seasonChampion[year]);
-        }, err => {
-          reject(err);
-        });
-      }
-    });
+  seasonChampion(year: string) {
+    const endpoint = CHAMPION_BY_YEAR_API.replace('${year}', year);
+    return this.callOrCache(endpoint, 'seasonChampion', year);
   }
 
-  races(year) {
+  racesByYear(year: string) {
+    const endpoint = RACES_BY_YEAR_API.replace('${year}', year);
+    return this.callOrCache(endpoint, 'races', year);
+  }
+
+  winsByYear(year: string, driver: string) {
+    const endpoint = WINS_BY_YEAR_AND_DRIVER_API.replace('${year}', year).replace('${driver}', driver);
+    return this.callOrCache(endpoint, 'wins', `${year}-${driver}`);
+  }
+
+  private callOrCache(endpoint, type, id) {
     return new Promise((resolve, reject) => {
-      if (this.localCache.races[year]) {
-        resolve(this.localCache.races[year]);
+      if (this.localCache[type][id]) {
+        resolve(this.localCache[type][id]);
       } else {
-        const endpoint = RACES_BY_YEAR_API.replace('${year}', year);
         this.http.get(endpoint)
         .pipe(this.handleError())
         .toPromise()
         .then(res => {
-          this.localCache.races[year] = res;
-          resolve(this.localCache.races[year]);
+          this.localCache[type][id] = res;
+          resolve(this.localCache[type][id]);
         }, err => {
           reject(err);
         });
