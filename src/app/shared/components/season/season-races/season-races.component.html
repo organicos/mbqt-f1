@@ -4,7 +4,7 @@
 
     <span *ngIf="races.MRData else problemsLoadingTemplate">
 
-      <div *ngFor="let race of races.MRData.RaceTable.Races">
+      <div *ngFor="let race of races.MRData.RaceTable.Races" class="season-race">
 
         <app-season-race [race]="race" [highlight]="driverWon[race.round]"></app-season-race>
 

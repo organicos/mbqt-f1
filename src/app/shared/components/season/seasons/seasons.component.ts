@@ -37,7 +37,7 @@ export class SeasonsComponent implements OnInit {
   }
 
   setOpenYear(year) {
-    this.router.navigate(['/seasons', year]);
+    this.router.navigate(['/champions', year]);
   }
 
   private getYearFromUrl() {
@@ -49,7 +49,7 @@ export class SeasonsComponent implements OnInit {
           this.yearOpen = yearParam;
         }
       } catch (error) { }
-    })
+    });
   }
 
 }

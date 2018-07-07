@@ -1,5 +1,7 @@
 @import './../../../../../assets/styles/constants';
 
 .seasons-wrapper {
-    border-left: 1em solid $highlight-color;
+  .season-race {
+    margin-bottom: 8px;
+  }
 }

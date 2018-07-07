@@ -1,12 +1,14 @@
-<div [ngClass]="{highlight: highlight}" class="season-wrapper" fxLayout="row" fxLayoutWrap="true" fxLayout="center center">
+<div class="season-wrapper"
+  fxLayout="row" fxLayoutWrap="true" fxLayoutAlign="left center"
+  [ngClass]="{highlight: highlight}">
+
+  {{year}}
 
   <div class="image-wrapper" fxFlex="64px">
     <img [src]="champion?.image" *ngIf="champion?.image">
   </div>
   
   <div fxFlex>
-    {{year}} -
-
     <span *ngIf="season else loadingTemplate">
       <span *ngIf="season.MRData else problemsLoadingTemplate">
         <span *ngIf="champion">
