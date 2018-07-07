@@ -8,9 +8,23 @@ import { ErgastService } from '@services/ergast/ergast.service';
 })
 export class SeasonRacesComponent {
 
+  driverWon: any = {};
+
+  loading: boolean;
+
   races;
 
-  driverWon: any = {};
+  @Input()
+  set driver(v: string) {
+    this._driver = v;
+    if (v) {
+      this.loadDriverWins();
+    }
+  }
+
+  get driver() {
+    return this._driver;
+  }
 
   @Input()
   set year(v: string) {
@@ -24,19 +38,6 @@ export class SeasonRacesComponent {
     return this._year;
   }
 
-  @Input()
-  set driver(v: string) {
-    console.log('set champion', v);
-    this._driver = v;
-    if (v) {
-      this.loadDriverWins();
-    }
-  }
-
-  get driver() {
-    return this._driver;
-  }
-
   private _driver;
 
   private _year;
@@ -46,8 +47,10 @@ export class SeasonRacesComponent {
   ) { }
 
   private loadSeasons() {
+    this.loading = true;
     this.ergast.racesByYear(this.year)
     .then(races => {
+      this.loading = false;
       this.races = races;
     });
   }
@@ -55,10 +58,8 @@ export class SeasonRacesComponent {
   private loadDriverWins() {
     this.driverWon = {};
     this.ergast.winsByYear(this.year, this.driver)
-
     .then((driverWins: any) => {
       const races = driverWins.MRData.RaceTable.Races;
-
       races.forEach(race => {
         this.driverWon[race.round] = true;
       });

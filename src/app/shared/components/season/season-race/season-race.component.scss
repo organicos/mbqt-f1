@@ -1,5 +1,14 @@
 @import './../../../../../assets/styles/constants';
 
-.highlight {
-  background-color: $highlight-color;
+.race-wrapper {
+
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
+  border: 1px solid black;
+
+  &.highlight {
+    background-color: $highlight-color;
+  }
+
 }

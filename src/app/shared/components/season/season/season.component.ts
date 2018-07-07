@@ -35,10 +35,19 @@ export class SeasonComponent implements AfterViewInit {
     });
   }
 
+  private loadDriverImage() {
+    const championName = `${this.champion.givenName}_${this.champion.familyName}`;
+    this.ergast.getImage(championName)
+    .then(championImage => {
+      this.champion.image = championImage;
+    });
+  }
+
   private extractChampion() {
     try {
       this.champion = this.season.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Driver;
       this.championReceived.emit(this.champion);
+      this.loadDriverImage();
     } catch (error) {
       return undefined;
     }

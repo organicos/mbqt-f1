@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { throwError, OperatorFunction, BehaviorSubject } from 'rxjs';
 
 const enum API {
   NAME = 'MBQT_F1_DATA_CACHE',
   CHAMPION_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/last/driverStandings/1.json',
   RACES_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/races.json',
   WINS_BY_YEAR_AND_DRIVER_API = 'https://ergast.com/api/f1/${year}/drivers/${driver}/results/1.json',
-}
-
-interface LocalCache {
-  [key: string]: any;
+  IMAGE_API = 'https://en.wikipedia.org/w/api.php?action=query&titles=${driverName}&prop=pageimages&format=json&origin=*&pithumbsize=64',
 }
 
 @Injectable({
@@ -19,9 +16,14 @@ interface LocalCache {
 })
 export class ErgastService {
 
-  private innerCache: LocalCache = {
-    seasonChampion: {},
+  loading = new BehaviorSubject(undefined);
+
+  private innerLoading: any = {};
+
+  private innerCache = {
+    driverPictures: {},
     races: {},
+    seasonChampion: {},
     wins: {},
   };
 
@@ -46,19 +48,31 @@ export class ErgastService {
     return this.callOrCache(endpoint, 'wins', `${year}-${driver}`);
   }
 
-  private callOrCache(endpoint, type, id) {
+  getImage(driverName) {
+    const endpoint = API.IMAGE_API.replace('${driverName}', driverName);
+    return this.callOrCache(endpoint, 'driverPictures', `${driverName}`, map((res: any) => {
+      const firstImageNumber = Object.keys(res.query.pages)[0];
+      return res.query.pages[firstImageNumber].thumbnail.source;
+    }));
+  }
+
+  private callOrCache(endpoint, collectionName, id, ...pipes: any[]) {
+
     return new Promise((resolve, reject) => {
-      if (this.innerCache[type][id]) {
-        resolve(this.innerCache[type][id]);
+      if (this.innerCache[collectionName][id]) {
+        resolve(this.innerCache[collectionName][id]);
       } else {
+        this.innerLoading[id] = true;
         this.http.get(endpoint)
-        .pipe(this.handleError())
+        .pipe(this.handleError(), ...pipes)
         .toPromise()
         .then(res => {
-          this.innerCache[type][id] = res;
-          resolve(this.innerCache[type][id]);
+          this.stopLoadingAngEmitState(collectionName, id);
+          this.innerCache[collectionName][id] = res;
+          resolve(this.innerCache[collectionName][id]);
           this.setCacheOnStorage();
         }, err => {
+          this.stopLoadingAngEmitState(collectionName, id);
           reject(err);
         });
       }
@@ -82,6 +96,19 @@ export class ErgastService {
   private setCacheOnStorage() {
     const data = JSON.stringify(this.innerCache);
     localStorage.setItem(API.NAME, data);
+  }
+
+  private stopLoadingAngEmitState(collectionName, id) {
+    this.innerLoading[collectionName] = this.innerLoading[collectionName] || {};
+    this.innerLoading[collectionName][id] = false;
+
+    const state = Object.keys(this.innerLoading).reduce((previousCollectionValue, collection) => {
+      return Object.keys(this.innerLoading[collection]).reduce((previsousItemValue, key) => {
+        return collection[key] || previsousItemValue;
+      }, false) || previousCollectionValue;
+    }, false);
+
+    this.loading.next(state);
   }
 
 }

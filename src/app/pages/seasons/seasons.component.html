@@ -1,14 +1,27 @@
-<h1 routerLink="/" class="click">F1</h1>
-
-<h1>Champions by season</h1>
-
 <div fxLayout="row">
+  <div>
+    <a routerLink="/">
+      <img src="/assets/icons/icon-72x72.png">
+    </a>
+  </div>
+   
+  <div fxFlex>
+    <h1>&nbsp; F1 Winners</h1>
+  </div>
+</div>
+<div fxLayout="row" *ngIf="!(loading$ | async) else loadginTemplate">
   <div fxFlex>
     <div *ngFor="let year of years">
       <app-season [year]="year" (click)="setOpenYear(year)" [highlight]="yearOpen == year" class="click" (championReceived)="champions[year] = $event;"></app-season>
     </div>
   </div>
   <div fxFlex>
-    <app-season-races *ngIf="yearOpen" [year]="yearOpen" [driver]="champions[yearOpen]?.driverId"></app-season-races>
+    <div *ngFor="let raceYear of years">
+      <app-season-races [hidden]="yearOpen != raceYear"  [year]="raceYear" [driver]="champions[raceYear]?.driverId"></app-season-races>
+    </div>
   </div>
 </div>
+
+<ng-template #loadginTemplate>
+  Loading...
+</ng-template>

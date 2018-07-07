@@ -2,26 +2,66 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The demo is hosted in a Github Page. 
 
-## Code scaffolding
+[Open the demo](https://vinagreti.github.io/mbqt-f1/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Running
 
-## Build
+Clone, enter, install, serve...
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. Clone: `git clone https://github.com/vinagreti/mbqt-f1`
+2. Go to root folder: `cd mbqt-f1`
+3. Install dependencies: `npm i`
+4. Serve locally: `ng s`
+5. Open your browser e go to `localhost:4200`
+6. ;)
 
-## Running unit tests
+## Problem solved
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This Single Page Application was designed to show the Formula 1 champions by year.
+When a year is selected, we can see all races from that year and which one the champion won.
 
-## Running end-to-end tests
+## Architecture
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+We use only angular in this project and the `@angular/cli` to scaffolding the pieces.
 
-## Further help
+The folder structure is ready for large systems.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### /core
+
+The core folder hosts modules that are used by the entire application but need to be load only once, usually in the `AppModule`.
+
+### /pages
+
+The pages folder hosts the routes and pages where all the magic components are used.
+
+It usually contain the business logic that in many cases are decisions if a presentations component should be displayed or not.
+
+### /shared
+
+The shared folder hosts all services, directives, pipes, modules and non logical components.
+
+This is where we build the magic.
+
+It is a best practice to separate presentation components from logic ones. This way you can improve reusability.
+
+## Cache
+
+The data retrieved from the API s hosted in localStorage so we do not need to load it twice.
+
+To remove the cache you can clean the localStorage or run the following command in the browser console
+
+```javascript
+localStorage.removeItem('MBQT_F1_DATA_CACHE');
+```
+
+## PWA - Progressive Web App
+
+This application can be installed in your computer or mobile device. This makes it faster to start and give a better performance and accessibility
+
+## Offline
+
+You can access it offline and see all data you have cached.

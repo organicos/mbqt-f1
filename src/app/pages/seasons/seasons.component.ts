@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { ErgastService } from '@app/shared/services/ergast/ergast.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-seasons',
@@ -8,18 +10,23 @@ import { Router, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router'
 })
 export class SeasonsComponent implements OnInit {
 
-  years = Array.from({ length: 11 }, (v, k) => k + 2005);
+  champions = {};
+
+  loading$: Observable<boolean>;
 
   showRaces: {[key: number]: boolean} = [];
 
-  champions = {};
+  years = Array.from({ length: 11 }, (v, k) => k + 2005);
 
   yearOpen;
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private ergest: ErgastService,
+  ) {
+    this.loading$ = this.ergest.loading;
+  }
 
   ngOnInit() {
     this.getYearFromUrl();
@@ -30,7 +37,6 @@ export class SeasonsComponent implements OnInit {
   }
 
   setOpenYear(year) {
-    this.yearOpen = year;
     this.router.navigate(['/seasons', year]);
   }
 

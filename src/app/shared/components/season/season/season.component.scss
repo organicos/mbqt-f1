@@ -1,5 +1,20 @@
 @import './../../../../../assets/styles/constants';
 
-.highlight {
-  background-color: $highlight-color;
+.season-wrapper {
+  margin: 8px;
+  border: 1px solid black;
+  
+  &.highlight {
+    background-color: $highlight-color;
+  }
+
+  .image-wrapper {
+    text-align: right;
+    
+    img {
+      border-radius: 50%;
+      max-width: 64px;
+      height: 64px;
+    }
+  }
 }

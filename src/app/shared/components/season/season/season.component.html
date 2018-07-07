@@ -1,15 +1,22 @@
-<div [ngClass]="{highlight: highlight}">
-  {{year}} -
+<div [ngClass]="{highlight: highlight}" class="season-wrapper" fxLayout="row" fxLayoutWrap="true" fxLayout="center center">
 
-  <span *ngIf="season else loadingTemplate">
-    <span *ngIf="season.MRData else problemsLoadingTemplate">
-      <span *ngIf="champion">
-        {{ champion.givenName }}
-        {{ champion.familyName }}
+  <div class="image-wrapper" fxFlex="64px">
+    <img [src]="champion?.image" *ngIf="champion?.image">
+  </div>
+  
+  <div fxFlex>
+    {{year}} -
+
+    <span *ngIf="season else loadingTemplate">
+      <span *ngIf="season.MRData else problemsLoadingTemplate">
+        <span *ngIf="champion">
+          {{ champion.givenName }}
+          {{ champion.familyName }}
+        </span>
+        <small *ngIf="manufaturer">({{ manufaturer?.name }})</small>
       </span>
-      <small *ngIf="manufaturer">({{ manufaturer?.name }})</small>
     </span>
-  </span>
+  </div>
 </div>
 
 <ng-template #loadingTemplate>

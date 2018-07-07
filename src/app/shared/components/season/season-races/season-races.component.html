@@ -1,6 +1,6 @@
 <div class="seasons-wrapper">
 
-  <span *ngIf="races else loadingTemplate">
+  <span *ngIf="(races && !loading) else loadingTemplate">
 
     <span *ngIf="races.MRData else problemsLoadingTemplate">
 
