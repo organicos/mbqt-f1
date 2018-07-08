@@ -8,6 +8,8 @@ import { SplashScreenService } from '@app/shared/services/splash-screen/splash-s
 })
 export class AppComponent {
 
+  title = 'Formula 1 Champions';
+
   constructor(
     private splachScreen: SplashScreenService
   ) { }

@@ -1,11 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ErgastService } from './ergast.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ErgastService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ErgastService]
+      providers: [ErgastService],
+      imports: [
+        HttpClientModule,
+      ]
     });
   });
 
