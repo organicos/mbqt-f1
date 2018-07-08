@@ -8,7 +8,6 @@ import { CoreModule } from '@app/core/core/core.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { MatToolbarModule } from '@angular/material';
 import { environment } from '../environments/environment';
-import { SplashScreenModule } from '@app/shared/services/splash-screen/splash-screen.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { SplashScreenModule } from '@app/shared/services/splash-screen/splash-sc
     CoreModule,
     MatToolbarModule,
     ServiceWorkerModule.register(environment.swFile, { enabled: environment.production }),
-    SplashScreenModule,
   ],
   bootstrap: [AppComponent]
 })

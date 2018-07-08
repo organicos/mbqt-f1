@@ -65,3 +65,7 @@ This application can be installed in your computer or mobile device. This makes 
 ## Offline
 
 You can access it offline and see all data you have cached.
+
+## Testing
+
+To test the app run the command `ng test`.

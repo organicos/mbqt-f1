@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SplashScreenService } from '@app/shared/services/splash-screen/splash-screen.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +9,6 @@ export class AppComponent {
 
   title = 'Formula 1 Champions';
 
-  constructor(
-    private splachScreen: SplashScreenService
-  ) { }
+  constructor() { }
 
 }
