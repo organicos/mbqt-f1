@@ -1,4 +1,4 @@
 <div *ngIf="race" [ngClass]="{highlight: highlight}" class="race-wrapper">
-  <strong>{{ race.raceName }}</strong>
-  <small> ({{ race.Circuit.Location.country }})</small>
+  {{ race.Circuit.Location.country }} -
+  <small>{{ race.raceName }}</small>
 </div>

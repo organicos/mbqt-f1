@@ -8,14 +8,14 @@
       "updateMode": "prefetch",
       "urls": [
         "https://organicos.github.io/mbqt-f1/0.cdeaffe144609e75651a.js",
-        "https://organicos.github.io/mbqt-f1/1.a3d38ce91298c5a1c09d.js",
-        "https://organicos.github.io/mbqt-f1/2.acf19b796123c01e3cfd.js",
+        "https://organicos.github.io/mbqt-f1/1.25be0adda75926a0cc80.js",
+        "https://organicos.github.io/mbqt-f1/2.8ac96cc8405208457048.js",
         "https://organicos.github.io/mbqt-f1/favicon.ico",
         "https://organicos.github.io/mbqt-f1/index.html",
-        "https://organicos.github.io/mbqt-f1/main.d582a6a2acff5caa23dd.js",
+        "https://organicos.github.io/mbqt-f1/main.b473a801cbc9833da9b3.js",
         "https://organicos.github.io/mbqt-f1/polyfills.1f682948bdc523f3cb0b.js",
-        "https://organicos.github.io/mbqt-f1/runtime.8a46ab18759a18e51f53.js",
-        "https://organicos.github.io/mbqt-f1/styles.78949c205c2beae8d6e7.css"
+        "https://organicos.github.io/mbqt-f1/runtime.940f3c77a399681a049a.js",
+        "https://organicos.github.io/mbqt-f1/styles.25ff7a6bc974232f483f.css"
       ],
       "patterns": []
     },
@@ -32,7 +32,6 @@
         "https://organicos.github.io/mbqt-f1/assets/icons/icon-512x512.png",
         "https://organicos.github.io/mbqt-f1/assets/icons/icon-72x72.png",
         "https://organicos.github.io/mbqt-f1/assets/icons/icon-96x96.png",
-        "https://organicos.github.io/mbqt-f1/assets/images/home-car.jpg",
         "https://organicos.github.io/mbqt-f1/assets/images/home-image.png",
         "https://organicos.github.io/mbqt-f1/assets/styles/app-startup-spinner.css",
         "https://organicos.github.io/mbqt-f1/assets/styles/appearance.scss",
@@ -44,8 +43,8 @@
   "dataGroups": [],
   "hashTable": {
     "https://organicos.github.io/mbqt-f1/0.cdeaffe144609e75651a.js": "68dce43451756312fb88ea59d2abcec2ce27e639",
-    "https://organicos.github.io/mbqt-f1/1.a3d38ce91298c5a1c09d.js": "73aaa4a6871094e47ccf3010bff3b3b893ceb9a3",
-    "https://organicos.github.io/mbqt-f1/2.acf19b796123c01e3cfd.js": "d88ff80676cf56a51a6c55161839297e0a8b6610",
+    "https://organicos.github.io/mbqt-f1/1.25be0adda75926a0cc80.js": "c95ddfa1606b9f3ecc5fdae94733e59d074a01eb",
+    "https://organicos.github.io/mbqt-f1/2.8ac96cc8405208457048.js": "2ed143ced2d8ac75a76c6b320daf077e9be812ce",
     "https://organicos.github.io/mbqt-f1/assets/icons/icon-128x128.png": "a8352fc21c04ed47e3e16f972f1a694907951ac7",
     "https://organicos.github.io/mbqt-f1/assets/icons/icon-144x144.png": "c2a56118449ac3fdfb5c9bd8277d71b3132f22a2",
     "https://organicos.github.io/mbqt-f1/assets/icons/icon-152x152.png": "0f4a8255c8bff70fbb2dbb2bdc127b6e266661ac",
@@ -54,17 +53,16 @@
     "https://organicos.github.io/mbqt-f1/assets/icons/icon-512x512.png": "868654b23e6f4c057a9d671d5ff7b4cb6a4bd5e0",
     "https://organicos.github.io/mbqt-f1/assets/icons/icon-72x72.png": "708e785d9f7f279166515fdbd13c588526c04fb2",
     "https://organicos.github.io/mbqt-f1/assets/icons/icon-96x96.png": "b887aabec85a768c0ab9a7f07eed0373586eab33",
-    "https://organicos.github.io/mbqt-f1/assets/images/home-car.jpg": "766dd3908c97bf5f8f9b57ab7e5c0c950176cfcb",
-    "https://organicos.github.io/mbqt-f1/assets/images/home-image.png": "d0837e7748433af8dedc63b5b041cc69d249df93",
+    "https://organicos.github.io/mbqt-f1/assets/images/home-image.png": "e1a71f194c2bf6f5da8bf163bb4828c7ff151463",
     "https://organicos.github.io/mbqt-f1/assets/styles/app-startup-spinner.css": "888dd9157969475864785a1a9a784ae628ae177a",
-    "https://organicos.github.io/mbqt-f1/assets/styles/appearance.scss": "9829c6a94278950bbe043d519b4ed18668de89eb",
+    "https://organicos.github.io/mbqt-f1/assets/styles/appearance.scss": "9e390dd96c3c8a9e8de9d4e85512a320f6553db7",
     "https://organicos.github.io/mbqt-f1/assets/styles/constants.scss": "5bb9b124a743b2e1c738a004923a1ce20fbd7365",
     "https://organicos.github.io/mbqt-f1/favicon.ico": "4c4dbff2d9dfe8030d2aaa193de29a178ceae9ae",
-    "https://organicos.github.io/mbqt-f1/index.html": "32d2665a93394800385edfe36b6eb95d7192db4d",
-    "https://organicos.github.io/mbqt-f1/main.d582a6a2acff5caa23dd.js": "487566fad279bb96275a985f7ba279298ae3cdf1",
+    "https://organicos.github.io/mbqt-f1/index.html": "63aba9ae1c33fcdb65ab2bfa76ffa6dc9744c4da",
+    "https://organicos.github.io/mbqt-f1/main.b473a801cbc9833da9b3.js": "cbb573fa20418a222b7e0f1db1ca43888de3dfea",
     "https://organicos.github.io/mbqt-f1/polyfills.1f682948bdc523f3cb0b.js": "22f5c7d2a7ba8b39450284707ae4811616cdd3ad",
-    "https://organicos.github.io/mbqt-f1/runtime.8a46ab18759a18e51f53.js": "2c8dc2eaed3e47521a3512ca2917f34e3fbaeaf8",
-    "https://organicos.github.io/mbqt-f1/styles.78949c205c2beae8d6e7.css": "5028e6036eb7094c718bf232627b0e4a597ecef0"
+    "https://organicos.github.io/mbqt-f1/runtime.940f3c77a399681a049a.js": "8c9f90a8f0e60c16ac553373c6a781ecb8f00254",
+    "https://organicos.github.io/mbqt-f1/styles.25ff7a6bc974232f483f.css": "afd21a7ffb8334e34d5846984c69db56c24c05f8"
   },
   "navigationUrls": [
     {

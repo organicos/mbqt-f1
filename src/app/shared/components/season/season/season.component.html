@@ -2,7 +2,7 @@
   fxLayout="row" fxLayoutWrap="true" fxLayoutAlign="left center"
   [ngClass]="{highlight: highlight}">
 
-  {{year}}
+  <strong>{{year}}</strong>
 
   <div class="image-wrapper" fxFlex="64px">
     <img [src]="champion?.image" *ngIf="champion?.image">
@@ -15,7 +15,6 @@
           {{ champion.givenName }}
           {{ champion.familyName }}
         </span>
-        <small *ngIf="manufaturer">({{ manufaturer?.name }})</small>
       </span>
     </span>
   </div>

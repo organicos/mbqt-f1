@@ -4,7 +4,7 @@
       <app-season [year]="year" (click)="setOpenYear(year)" [highlight]="yearOpen == year" class="click" (championReceived)="champions[year] = $event;"></app-season>
     </div>
   </div>
-  <div>
+  <div fxFlex>
     <div *ngFor="let raceYear of years">
       <app-season-races [hidden]="yearOpen != raceYear" [year]="raceYear" [driver]="champions[raceYear]?.driverId"></app-season-races>
     </div>
