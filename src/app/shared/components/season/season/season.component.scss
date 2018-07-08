@@ -1,10 +1,12 @@
 @import './../../../../../assets/styles/constants';
 
 .season-wrapper {
+  font-size: 18px;
+  font-weight: bold;
   border: 1px solid white;
   border-radius: 4px;
-  padding: 8px 8px;
-  height: 66px;
+  padding: 4px 8px;
+  height: 44px;
   
   &.highlight {
     background-color: $highlight-color;
@@ -16,8 +18,8 @@
     img {
       display: block;
       border-radius: 50%;
-      max-width: 48px;
-      height: 48px;
+      max-width: 40px;
+      height: 40px;
       margin: auto;
     }
   }
