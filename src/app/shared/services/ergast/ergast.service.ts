@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, distinctUntilChanged } from 'rxjs/operators';
-import { throwError, OperatorFunction, BehaviorSubject, Observable } from 'rxjs';
+import { throwError, OperatorFunction, BehaviorSubject, Observable, of } from 'rxjs';
 
-const enum API {
+export const enum API {
   NAME = 'MBQT_F1_DATA_CACHE',
   CHAMPION_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/last/driverStandings/1.json',
   RACES_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/races.json',
@@ -60,12 +60,12 @@ export class ErgastService {
   }
 
   private callOrCache(endpoint, collectionName, id, ...pipes: any[]) {
-
+    this.setLoading(collectionName, id, true);
     return new Promise((resolve, reject) => {
       if (this.innerCache[collectionName][id]) {
+        this.stopLoadingAngEmitState(collectionName, id);
         resolve(this.innerCache[collectionName][id]);
       } else {
-        this.setLoading(collectionName, id, true);
         this.http.get(endpoint)
         .pipe(this.handleError(), ...pipes)
         .toPromise()
@@ -84,7 +84,8 @@ export class ErgastService {
 
   private handleError = () => {
     return catchError(err => {
-      return throwError('ErgastService Error:: Need to handle error in calls');
+      console.error('ErgastService Error:: ', err);
+      return of();
     });
   }
 

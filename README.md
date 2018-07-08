@@ -62,7 +62,7 @@ localStorage.removeItem('MBQT_F1_DATA_CACHE');
 
 This application can be installed in your mobile device. This makes it faster to start and give a better performance and accessibility.
 
-In Android, go to your chrome browser, open de demo, go to settings and Add to Home Screen. This way the app will be installed as a native one and one icon is added to your home screen.
+On Android, go to your chrome browser, open the demo, go to settings and `Add to Home Screen`. This way the app will be installed as a native one and one icon will be added to your home screen.
 
 ## Offline
 
