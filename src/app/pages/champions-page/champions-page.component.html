@@ -1,3 +1,6 @@
+<div class="lading-wrapper">
+    <mat-progress-bar mode="indeterminate" color="primary" *ngIf="(loading$ | async) ? true : false"></mat-progress-bar>
+</div>
 <div class="seasons-page-wrapper">
     <app-seasons></app-seasons>
 </div>

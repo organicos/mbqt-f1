@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
-import { ErgastService } from '@app/shared/services/ergast/ergast.service';
-import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-seasons',
@@ -11,8 +9,6 @@ import { Observable } from 'rxjs';
 export class SeasonsComponent implements OnInit {
 
   champions = {};
-
-  loading$: Observable<boolean>;
 
   showRaces: {[key: number]: boolean} = [];
 
@@ -25,16 +21,10 @@ export class SeasonsComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private ergest: ErgastService,
   ) {  }
 
   ngOnInit() {
-    this.loading$ = this.ergest.loading$;
     this.getYearFromUrl();
-  }
-
-  showYearDetails(year) {
-    console.log('showYearDetails(year)', year);
   }
 
   setOpenYear(year) {

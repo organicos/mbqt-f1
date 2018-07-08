@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
-import { throwError, OperatorFunction, BehaviorSubject } from 'rxjs';
+import { catchError, map, distinctUntilChanged } from 'rxjs/operators';
+import { throwError, OperatorFunction, BehaviorSubject, Observable } from 'rxjs';
 
 const enum API {
   NAME = 'MBQT_F1_DATA_CACHE',
@@ -16,7 +16,9 @@ const enum API {
 })
 export class ErgastService {
 
-  loading$ = new BehaviorSubject(false);
+  loading$: Observable<boolean>;
+
+  private _loading$ = new BehaviorSubject(false);
 
   private innerLoading: any = {};
 
@@ -30,6 +32,7 @@ export class ErgastService {
   constructor(
     private http: HttpClient
   ) {
+    this.subscribeToLoadingSream();
     this.loadCacheFromStorage();
   }
 
@@ -62,7 +65,7 @@ export class ErgastService {
       if (this.innerCache[collectionName][id]) {
         resolve(this.innerCache[collectionName][id]);
       } else {
-        this.innerLoading[id] = true;
+        this.setLoading(collectionName, id, true);
         this.http.get(endpoint)
         .pipe(this.handleError(), ...pipes)
         .toPromise()
@@ -97,17 +100,31 @@ export class ErgastService {
     localStorage.setItem(API.NAME, data);
   }
 
-  private stopLoadingAngEmitState(collectionName, id) {
+  private setLoading(collectionName, id, value) {
     this.innerLoading[collectionName] = this.innerLoading[collectionName] || {};
-    this.innerLoading[collectionName][id] = false;
-
-    const state = Object.keys(this.innerLoading).reduce((previousCollectionValue, collection) => {
-      return Object.keys(this.innerLoading[collection]).reduce((previsousItemValue, key) => {
-        return collection[key] || previsousItemValue;
-      }, false) || previousCollectionValue;
-    }, false);
-
-    this.loading$.next(state);
+    this.innerLoading[collectionName][id] = value;
   }
 
+  private stopLoadingAngEmitState(collectionName, id) {
+    this.setLoading(collectionName, id, false);
+    this.emitState();
+  }
+
+  private emitState() {
+    const state = Object.keys(this.innerLoading).reduce((previousCollectionValue, collectionName) => {
+      const collection = this.innerLoading[collectionName];
+      return Object.keys(collection).reduce((previsousItemValue, itemName) => {
+        const item = collection[itemName];
+        return item || previsousItemValue;
+      }, false) || previousCollectionValue;
+    }, false);
+    this._loading$.next(state);
+  }
+
+  private subscribeToLoadingSream() {
+    this.loading$ = this._loading$
+    .pipe(
+      distinctUntilChanged()
+    );
+  }
 }

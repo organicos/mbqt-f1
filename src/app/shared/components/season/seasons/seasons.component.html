@@ -1,15 +1,4 @@
-<div fxLayout="row">
-  <div>
-    <a routerLink="/">
-      <img src="./assets/icons/icon-72x72.png">
-    </a>
-  </div>
-   
-  <div fxFlex>
-    <h1>&nbsp; F1 Winners</h1>
-  </div>
-</div>
-<div fxLayout="row" *ngIf="!(loading$ | async) else loadginTemplate"  fxLayoutGap="8px"  fxLayoutAlign="left center">
+<div fxLayout="row"  fxLayoutGap="8px"  fxLayoutAlign="left center">
   <div>
     <div *ngFor="let year of years" class="app-season">
       <app-season [year]="year" (click)="setOpenYear(year)" [highlight]="yearOpen == year" class="click" (championReceived)="champions[year] = $event;"></app-season>
@@ -21,7 +10,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #loadginTemplate>
-  Loading...
-</ng-template>

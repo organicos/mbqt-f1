@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ErgastService } from '@app/shared/services/ergast/ergast.service';
 
 @Component({
   selector: 'app-champions-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChampionsPageComponent implements OnInit {
 
-  constructor() { }
+  loading$;
+
+  constructor(
+    private ergast: ErgastService
+  ) { }
 
   ngOnInit() {
+    this.loading$ = this.ergast.loading$;
   }
 
 }
