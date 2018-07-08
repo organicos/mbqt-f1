@@ -6,13 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 The demo is hosted in a Github Page. 
 
-[Open the demo](https://vinagreti.github.io/mbqt-f1/)
+[Open the demo](https://organicos.github.io/mbqt-f1/)
 
 ## Running
 
 Clone, enter, install, serve...
 
-1. Clone: `git clone https://github.com/vinagreti/mbqt-f1`
+1. Clone: `git clone https://github.com/organicos/mbqt-f1`
 2. Go to root folder: `cd mbqt-f1`
 3. Install dependencies: `npm i`
 4. Serve locally: `ng s`
