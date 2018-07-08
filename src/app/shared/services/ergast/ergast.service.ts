@@ -107,7 +107,7 @@ export class ErgastService {
       }, false) || previousCollectionValue;
     }, false);
 
-    this.loading$.next(true);
+    this.loading$.next(state);
   }
 
 }
