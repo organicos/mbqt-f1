@@ -1,8 +1,14 @@
 body {
     min-width: 600px;
     min-height: 100vh;
-    margin: none;
-    padding: none;
+    margin: 0;
+    padding: 0;
+    background-color: #3C4252;
+    color: white;
+
+    a {
+        color: white;
+    }
 }
 
 .click {

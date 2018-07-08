@@ -9,15 +9,15 @@
     <h1>&nbsp; F1 Winners</h1>
   </div>
 </div>
-<div fxLayout="row" *ngIf="!(loading$ | async) else loadginTemplate"  fxLayoutGap="8px"  fxLayoutAlign="space-between center">
+<div fxLayout="row" *ngIf="!(loading$ | async) else loadginTemplate"  fxLayoutGap="8px"  fxLayoutAlign="left center">
   <div>
     <div *ngFor="let year of years" class="app-season">
       <app-season [year]="year" (click)="setOpenYear(year)" [highlight]="yearOpen == year" class="click" (championReceived)="champions[year] = $event;"></app-season>
     </div>
   </div>
-  <div fxFlex>
+  <div>
     <div *ngFor="let raceYear of years">
-      <app-season-races [hidden]="yearOpen != raceYear"  [year]="raceYear" [driver]="champions[raceYear]?.driverId"></app-season-races>
+      <app-season-races [hidden]="yearOpen != raceYear" [year]="raceYear" [driver]="champions[raceYear]?.driverId"></app-season-races>
     </div>
   </div>
 </div>

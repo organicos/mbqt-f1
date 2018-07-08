@@ -8,14 +8,14 @@
       "updateMode": "prefetch",
       "urls": [
         "https://vinagreti.github.io/mbqt-f1/0.93b87e2a3900d4e8f8e5.js",
-        "https://vinagreti.github.io/mbqt-f1/1.e1585611cdd5af26c2c5.js",
-        "https://vinagreti.github.io/mbqt-f1/2.71d58e4ef9689268cdee.js",
+        "https://vinagreti.github.io/mbqt-f1/1.30dbc7b853fc901df781.js",
+        "https://vinagreti.github.io/mbqt-f1/2.96d7eee52b5383829410.js",
         "https://vinagreti.github.io/mbqt-f1/favicon.ico",
         "https://vinagreti.github.io/mbqt-f1/index.html",
-        "https://vinagreti.github.io/mbqt-f1/main.ef0fc69f76623c5a42d4.js",
+        "https://vinagreti.github.io/mbqt-f1/main.91d4255c270bc8d3a7b5.js",
         "https://vinagreti.github.io/mbqt-f1/polyfills.1f682948bdc523f3cb0b.js",
-        "https://vinagreti.github.io/mbqt-f1/runtime.694295d0fcc30162cae6.js",
-        "https://vinagreti.github.io/mbqt-f1/styles.f452d982e42dd7269a29.css"
+        "https://vinagreti.github.io/mbqt-f1/runtime.7370596129bc279b0c93.js",
+        "https://vinagreti.github.io/mbqt-f1/styles.6f82fc7098cb24cb391d.css"
       ],
       "patterns": []
     },
@@ -32,6 +32,7 @@
         "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-512x512.png",
         "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-72x72.png",
         "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-96x96.png",
+        "https://vinagreti.github.io/mbqt-f1/assets/images/home-car.jpg",
         "https://vinagreti.github.io/mbqt-f1/assets/styles/appearance.scss",
         "https://vinagreti.github.io/mbqt-f1/assets/styles/constants.scss"
       ],
@@ -41,8 +42,8 @@
   "dataGroups": [],
   "hashTable": {
     "https://vinagreti.github.io/mbqt-f1/0.93b87e2a3900d4e8f8e5.js": "e37938ffe6c668f8f3516656469e7cc6ff54dde1",
-    "https://vinagreti.github.io/mbqt-f1/1.e1585611cdd5af26c2c5.js": "2a939f06ee0b27680525d202474078108f6418be",
-    "https://vinagreti.github.io/mbqt-f1/2.71d58e4ef9689268cdee.js": "b92c66c16c5779955be332bfcd37ef77fe1d4d45",
+    "https://vinagreti.github.io/mbqt-f1/1.30dbc7b853fc901df781.js": "6f831f73a9e71e127d053e4c71f0a7416b178bd7",
+    "https://vinagreti.github.io/mbqt-f1/2.96d7eee52b5383829410.js": "26f581fe4e9a820e7d7f8de53186fd76057a659c",
     "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-128x128.png": "a8352fc21c04ed47e3e16f972f1a694907951ac7",
     "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-144x144.png": "c2a56118449ac3fdfb5c9bd8277d71b3132f22a2",
     "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-152x152.png": "0f4a8255c8bff70fbb2dbb2bdc127b6e266661ac",
@@ -51,14 +52,15 @@
     "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-512x512.png": "868654b23e6f4c057a9d671d5ff7b4cb6a4bd5e0",
     "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-72x72.png": "708e785d9f7f279166515fdbd13c588526c04fb2",
     "https://vinagreti.github.io/mbqt-f1/assets/icons/icon-96x96.png": "b887aabec85a768c0ab9a7f07eed0373586eab33",
-    "https://vinagreti.github.io/mbqt-f1/assets/styles/appearance.scss": "90800925f2d7115d4b6be540202b563eaa222b24",
+    "https://vinagreti.github.io/mbqt-f1/assets/images/home-car.jpg": "f0a3f1a0bc0549274a5ade465280b472fd941546",
+    "https://vinagreti.github.io/mbqt-f1/assets/styles/appearance.scss": "9829c6a94278950bbe043d519b4ed18668de89eb",
     "https://vinagreti.github.io/mbqt-f1/assets/styles/constants.scss": "5bb9b124a743b2e1c738a004923a1ce20fbd7365",
     "https://vinagreti.github.io/mbqt-f1/favicon.ico": "4c4dbff2d9dfe8030d2aaa193de29a178ceae9ae",
-    "https://vinagreti.github.io/mbqt-f1/index.html": "dff4048995e3646a8784413e16ce8f10306582fc",
-    "https://vinagreti.github.io/mbqt-f1/main.ef0fc69f76623c5a42d4.js": "d8e3513a428e444432062fa621f9d532c00069c0",
+    "https://vinagreti.github.io/mbqt-f1/index.html": "871aef625a44fef22d8e06f39373499644d481f3",
+    "https://vinagreti.github.io/mbqt-f1/main.91d4255c270bc8d3a7b5.js": "21b4243948ba49c14e1accd37e8868a61fbe0713",
     "https://vinagreti.github.io/mbqt-f1/polyfills.1f682948bdc523f3cb0b.js": "22f5c7d2a7ba8b39450284707ae4811616cdd3ad",
-    "https://vinagreti.github.io/mbqt-f1/runtime.694295d0fcc30162cae6.js": "3ba8e75552135e9fef0b46051fdfcbf45fc689de",
-    "https://vinagreti.github.io/mbqt-f1/styles.f452d982e42dd7269a29.css": "cfd748faa82a8243e06a504f28620fb174b904ec"
+    "https://vinagreti.github.io/mbqt-f1/runtime.7370596129bc279b0c93.js": "afd58e6c3cfe10a113ae502f97ef5979f3ff957c",
+    "https://vinagreti.github.io/mbqt-f1/styles.6f82fc7098cb24cb391d.css": "5021d9be2a48ea9d895afc24c1b09562a1b87f5e"
   },
   "navigationUrls": [
     {

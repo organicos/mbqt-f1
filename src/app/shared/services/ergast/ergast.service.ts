@@ -16,7 +16,7 @@ const enum API {
 })
 export class ErgastService {
 
-  loading = new BehaviorSubject(undefined);
+  loading$ = new BehaviorSubject(false);
 
   private innerLoading: any = {};
 
@@ -87,7 +87,6 @@ export class ErgastService {
 
   private loadCacheFromStorage() {
     const localStorageCache = localStorage.getItem(API.NAME);
-
     if (!!localStorageCache) {
       this.innerCache = JSON.parse(localStorageCache);
     }
@@ -108,7 +107,7 @@ export class ErgastService {
       }, false) || previousCollectionValue;
     }, false);
 
-    this.loading.next(state);
+    this.loading$.next(true);
   }
 
 }

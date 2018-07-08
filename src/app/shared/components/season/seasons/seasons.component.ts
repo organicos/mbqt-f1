@@ -20,15 +20,16 @@ export class SeasonsComponent implements OnInit {
 
   yearOpen;
 
+  raceYear;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private ergest: ErgastService,
-  ) {
-    this.loading$ = this.ergest.loading;
-  }
+  ) {  }
 
   ngOnInit() {
+    this.loading$ = this.ergest.loading$;
     this.getYearFromUrl();
   }
 
