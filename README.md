@@ -60,11 +60,13 @@ localStorage.removeItem('MBQT_F1_DATA_CACHE');
 
 ## PWA - Progressive Web App
 
-This application can be installed in your computer or mobile device. This makes it faster to start and give a better performance and accessibility
+This application can be installed in your mobile device. This makes it faster to start and give a better performance and accessibility.
+
+In Android, go to your chrome browser, open de demo, go to settings and Add to Home Screen. This way the app will be installed as a native one and one icon is added to your home screen.
 
 ## Offline
 
-You can access it offline and see all data you have cached.
+Once added to your home screen, you can use the app even offline and see all data loaded.
 
 ## Testing
 
