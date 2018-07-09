@@ -25,35 +25,48 @@ describe('ErgastService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should load sesons', () => {
+  describe('#seasonChampion', () => {
 
     const year = '2005';
 
-    const endpoint = API.CHAMPION_BY_YEAR_API.replace('${year}', year);
+    it('should return a promise', () => {
 
-    const states = {
-      shown: false,
-      hidden: false
-    };
+      const call = service.seasonChampion(year);
 
-    service.loading$.subscribe(state => {
-      const which = state ? 'shown' : 'hidden';
-      states[which] = true;
+      expect(call.then).toBeTruthy();
+
     });
 
-    const seasonMock = [
-      { foo: 'bar' }
-    ];
+    it('should load sesions', () => {
 
-    service.seasonChampion(year).then(season => {
-      expect(season).toBeTruthy(2);
+      const endpoint = API.CHAMPION_BY_YEAR_API.replace('${year}', year);
+
+      const seasonMock = [
+        { foo: 'bar' }
+      ];
+
+      service.seasonChampion(year).then(season => {
+        expect(season).toBeTruthy(2);
+      });
+
+      const req = httpMock.expectOne(endpoint);
+
+      expect(req.request.method).toBe('GET');
+
+      req.flush(seasonMock);
+
     });
 
-    const req = httpMock.expectOne(endpoint);
+    it('should throw a custom error if a wrong year is given`', () => {
+      const endpoint = API.CHAMPION_BY_YEAR_API.replace('${year}', year);
 
-    expect(req.request.method).toBe('GET');
+      service.seasonChampion(null)
+      .then(() => {}, err => {
+        expect(err).toBe(`ErgastService Error:: Need to improve error log`);
+      });
 
-    req.flush(seasonMock);
+      httpMock.expectNone(endpoint);
+    });
 
   });
 

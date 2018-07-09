@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, distinctUntilChanged } from 'rxjs/operators';
-import { throwError, OperatorFunction, BehaviorSubject, Observable, of } from 'rxjs';
+import { throwError, BehaviorSubject, Observable } from 'rxjs';
 
 export const enum API {
   NAME = 'MBQT_F1_DATA_CACHE',
@@ -84,8 +84,7 @@ export class ErgastService {
 
   private handleError = () => {
     return catchError(err => {
-      console.error('ErgastService Error:: ', err);
-      return of();
+      return throwError('ErgastService Error:: Need to improve error log');
     });
   }
 
