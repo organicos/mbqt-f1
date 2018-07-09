@@ -22,7 +22,7 @@ Clone, enter, install, serve...
 ## Problem solved
 
 This Single Page Application was designed to show the Formula 1 champions by year.
-When a year is selected, we can see all races from that year and which one the champion won.
+When a year is selected, we can see all races and winners from that year and which one the champion won.
 
 ## Architecture
 
