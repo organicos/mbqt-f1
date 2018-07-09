@@ -1,4 +1,8 @@
-<div *ngIf="race" [ngClass]="{highlight: highlight}" class="race-wrapper">
-  {{ race.Circuit.Location.country }} -
-  <small>{{ race.raceName }}</small>
+<div *ngIf="race" [ngClass]="{highlight: highlight}" class="race-wrapper" fxLayout="row">
+  <div fxFlex="200px">
+    {{ race.Circuit.Location.country }} - 
+    <small>{{ race.raceName }}</small>
+  </div>
+  
+  <div fxFlex>{{ race.winner?.givenName }} {{ race.winner?.familyName }}</div>
 </div>

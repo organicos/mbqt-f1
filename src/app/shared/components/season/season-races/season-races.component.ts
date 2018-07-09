@@ -14,6 +14,8 @@ export class SeasonRacesComponent {
 
   races;
 
+  racesWins;
+
   @Input()
   set driver(v: string) {
     this._driver = v;
@@ -57,12 +59,18 @@ export class SeasonRacesComponent {
 
   private loadDriverWins() {
     this.driverWon = {};
-    this.ergast.winsByYear(this.year, this.driver)
-    .then((driverWins: any) => {
-      const races = driverWins.MRData.RaceTable.Races;
-      races.forEach(race => {
+    this.ergast.winsByYear(this.year).then(this.extratVictoryInfo);
+  }
+
+  private extratVictoryInfo = (driversWins) => {
+    this.racesWins = driversWins.MRData.RaceTable.Races;
+
+    this.racesWins.forEach((race, index) => {
+      const driver = race.Results[0].Driver;
+      this.races.MRData.RaceTable.Races[index].winner = driver;
+      if (driver.driverId === this.driver) {
         this.driverWon[race.round] = true;
-      });
+      }
     });
   }
 }

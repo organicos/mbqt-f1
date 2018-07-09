@@ -7,7 +7,7 @@ export const enum API {
   NAME = 'MBQT_F1_DATA_CACHE',
   CHAMPION_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/last/driverStandings/1.json',
   RACES_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/races.json',
-  WINS_BY_YEAR_AND_DRIVER_API = 'https://ergast.com/api/f1/${year}/drivers/${driver}/results/1.json',
+  WINS_BY_YEAR_API = 'https://ergast.com/api/f1/${year}/results/1.json',
   IMAGE_API = 'https://en.wikipedia.org/w/api.php?action=query&titles=${driverName}&prop=pageimages&format=json&origin=*&pithumbsize=64',
 }
 
@@ -46,9 +46,9 @@ export class ErgastService {
     return this.callOrCache(endpoint, 'races', year);
   }
 
-  winsByYear(year: string, driver: string) {
-    const endpoint = API.WINS_BY_YEAR_AND_DRIVER_API.replace('${year}', year).replace('${driver}', driver);
-    return this.callOrCache(endpoint, 'wins', `${year}-${driver}`);
+  winsByYear(year: string) {
+    const endpoint = API.WINS_BY_YEAR_API.replace('${year}', year);
+    return this.callOrCache(endpoint, 'wins', `${year}`);
   }
 
   getImage(driverName) {
@@ -66,19 +66,23 @@ export class ErgastService {
         this.stopLoadingAngEmitState(collectionName, id);
         resolve(this.innerCache[collectionName][id]);
       } else {
-        this.http.get(endpoint)
-        .pipe(this.handleError(), ...pipes)
-        .toPromise()
-        .then(res => {
-          this.stopLoadingAngEmitState(collectionName, id);
-          this.innerCache[collectionName][id] = res;
-          resolve(this.innerCache[collectionName][id]);
-          this.setCacheOnStorage();
-        }, err => {
-          this.stopLoadingAngEmitState(collectionName, id);
-          reject(err);
-        });
+        this.loadDataFromApi(collectionName, id, endpoint, resolve, reject, ...pipes);
       }
+    });
+  }
+
+  private loadDataFromApi(collectionName, id, endpoint, resolve, reject, ...pipes: any[]) {
+    this.http.get(endpoint)
+    .pipe(this.handleError(), ...pipes)
+    .toPromise()
+    .then(res => {
+      this.stopLoadingAngEmitState(collectionName, id);
+      this.innerCache[collectionName][id] = res;
+      this.setCacheOnStorage();
+      resolve(this.innerCache[collectionName][id]);
+    }, err => {
+      this.stopLoadingAngEmitState(collectionName, id);
+      reject(err);
     });
   }
 
